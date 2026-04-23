@@ -77,6 +77,7 @@ async def main():
             if full_data:
                 df = pd.DataFrame(full_data)
                 # Setting index like your .T (transpose) logic
+                df = df.fillna("")
                 result_json = df.set_index("job_index").to_dict(orient="index")
                 
                 # Save the final structured JSON to the Key-Value Store
