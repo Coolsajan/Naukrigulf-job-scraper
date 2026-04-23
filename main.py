@@ -35,7 +35,7 @@ async def main():
             Actor.log.info(f"Found {len(job_urls)} jobs. Starting extraction...")
 
             for i, url in enumerate(job_urls):
-                Actor.log.info(f"[{i}] Navigating to: {url}")
+                Actor.log.info(f"[{i+1}] Navigating to: {url}")
                 driver.get(url)
                 
                 # Wait for the job description to load
