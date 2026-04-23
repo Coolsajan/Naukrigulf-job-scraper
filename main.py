@@ -43,14 +43,19 @@ async def main():
                 
                 try:
                     wait.until(EC.visibility_of_element_located((By.CLASS_NAME, "job-description")))
+
+                    job_title = driver.find_element(By.CSS_SELECTOR, "h1.info-position").text.strip()
+                    company_name = driver.find_element(By.CSS_SELECTOR, "a.info-org").text.strip()
                     description = driver.find_element(By.CLASS_NAME, "job-description").text
                     
                     profile_items = driver.find_elements(By.CSS_SELECTOR, "div.candidate-profile div.col")
             
                     # Store data in a dictionary
                     job_data = {
-                        "job_index": i,
+                        "job_index": i+1,
                         "url": url,
+                        "Job_Title": job_title,
+                        "Company": company_name,
                         "Description": description
                     }
                     
